@@ -34,3 +34,7 @@ function addToPlayer(element) {
 
   display(playersArray);
 }
+
+
+// ..........................................................
+
