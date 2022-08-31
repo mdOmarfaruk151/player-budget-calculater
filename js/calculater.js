@@ -1,48 +1,45 @@
-document.getElementById('btn-per-total').addEventListener('click', function(){
-   
-  const newPlayerAmount = getInputFieldValueById('player-input-field');
+document.getElementById("btn-per-total").addEventListener("click", function () {
+  const newPlayerAmount = getInputFieldValueById("player-input-field");
 
-  if(isNaN(newPlayerAmount)){
-    alert('Please Provide a Valid Amount (number)');
+  if (isNaN(newPlayerAmount)) {
+    alert("Please Provide a Valid Amount (number)");
     return;
   }
 
-  const outputTotalElement = document.getElementById('player-expenses');
+  const outputTotalElement = document.getElementById("player-expenses");
   outputTotalElement.innerText;
- 
-  const playerAddedTotal = getTextElementValueById('total-added-player');
+
+  const playerAddedTotal = getTextElementValueById("total-added-player");
 
   const playerExpensesTotal = playerAddedTotal * newPlayerAmount;
-  outputTotalElement.innerText = playerExpensesTotal; 
-
+  outputTotalElement.innerText = playerExpensesTotal;
 });
 
 // ..................................................................................
 
-document.getElementById('btn-calculate-total').addEventListener('click', function(){
+document
+  .getElementById("btn-calculate-total")
+  .addEventListener("click", function () {
+    const managerInputAmount = getInputFieldValueById("manager-input-field");
 
-  const managerInputAmount = getInputFieldValueById('manager-input-field');
+    if (isNaN(managerInputAmount)) {
+      alert("Please Provide a Valid Amount (number)");
+      return;
+    }
 
-  if(isNaN(managerInputAmount)){
-    alert('Please Provide a Valid Amount (number)');
-    return;
-  }
+    const coachInputAmount = getInputFieldValueById("coach-input-field");
 
-  const coachInputAmount = getInputFieldValueById('coach-input-field');
+    if (isNaN(coachInputAmount)) {
+      alert("Please Provide a Valid Amount (number)");
+      return;
+    }
 
-  if(isNaN(coachInputAmount)){
-    alert('Please Provide a Valid Amount (number)');
-    return;
-  }
+    const totalElement = document.getElementById("total");
+    totalElement.innerText;
 
-  const totalElement = document.getElementById('total');
-   totalElement.innerText;
-  
-  const playerExpensesTotal = getTextElementValueById('player-expenses');
+    const playerExpensesTotal = getTextElementValueById("player-expenses");
 
-  const newBalanceTotal =  managerInputAmount + coachInputAmount + playerExpensesTotal;
-  totalElement.innerText = newBalanceTotal;
-
-});
-
-
+    const newBalanceTotal =
+      managerInputAmount + coachInputAmount + playerExpensesTotal;
+    totalElement.innerText = newBalanceTotal;
+  });
