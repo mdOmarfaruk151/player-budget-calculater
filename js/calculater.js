@@ -5,6 +5,11 @@ document.getElementById('btn-per-total').addEventListener('click', function(){
     // console.log(newPlayerAmount);
   
     perPlayerInputField.value = '';
+
+    // if(isNaN(perPlayerInputField)){
+    //   alert('Please Provide a Valid Amount (number)');
+    //   return;
+    // }
   
     const outputTotalElement = document.getElementById('player-expenses');
     const previousOutputTotalString = outputTotalElement.innerText;
@@ -20,6 +25,8 @@ document.getElementById('btn-per-total').addEventListener('click', function(){
     
   })
 
+  // ..................................................................................
+
   document.getElementById('btn-calculate-total').addEventListener('click', function(){
     const managerInputField = document.getElementById('manager-input-field');
     const managerAmountString = managerInputField.value;
@@ -28,9 +35,12 @@ document.getElementById('btn-per-total').addEventListener('click', function(){
   
     managerInputField.value = '';
 
-  })
+    // if(isNaN(managerInputAmount)){
+    //   alert('Please Provide a Valid Amount (number)');
+    //   return;
+    // }
+  
 
-  document.getElementById('btn-calculate-total').addEventListener('click', function(){
     const coachInputField = document.getElementById('coach-input-field');
     const coachAmountString = coachInputField.value;
     const coachInputAmount = parseFloat(coachAmountString);
@@ -38,4 +48,26 @@ document.getElementById('btn-per-total').addEventListener('click', function(){
   
     coachInputField.value = '';
 
+    // if(isNaN(coachInputField)){
+    //   alert('Please Provide a Valid Amount (number)');
+    //   return;
+    // }
+  
+
+    const totalElement = document.getElementById('total');
+    const balanceTotalString = totalElement.innerText;
+    const balanceTotal = parseFloat(balanceTotalString);
+
+    const playerExpensesElement = document.getElementById('player-expenses');
+    const playerExpensesString = playerExpensesElement.innerText;
+    const playerExpensesTotal = parseFloat(playerExpensesString);
+
+    const newBalanceTotal =  managerInputAmount + coachInputAmount + playerExpensesTotal;
+    totalElement.innerText = newBalanceTotal;
+
+    
+
   })
+
+  
+  
