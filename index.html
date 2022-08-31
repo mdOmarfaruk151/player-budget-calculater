@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Player Budget Calculater</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="images/icon-circled-5.png"
+      type="image/x-icon"
+    />
+
     <!-- tailwind cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- daisyui -->
@@ -19,12 +25,15 @@
   <header>
     <div class="bg-zinc-900 mt-0 flex">
       <div>
-        <h1 class="text-6xl text-white text-center ml-40 mt-10">
+        <h1 class="text-6xl text-white text-center ml-40 mt-6">
           Calculate Your
           <span class="font-semibold text-orange-600">Top Five !!!</span>
         </h1>
-        
-          <h2 class="text-2xl text-white text-center ml-40 mt-10">FIFA is an international governing body of association football, beach football and futsal. </h2>
+
+        <h2 class="text-2xl text-white text-center ml-40 mt-10">
+          FIFA is an international governing body of association football, beach
+          football and futsal.
+        </h2>
       </div>
       <div class="w-2/5 mr-px">
         <img src="images/Ronaldo-transformed.png" alt="" />
@@ -35,10 +44,9 @@
   <body>
     <main>
       <section class="mt-10 w-9/12 mx-auto pb-40">
-        <div class="grid grid-cols-2 gap-4 ">
-             <!-- all players  -->
+        <div class="grid grid-cols-2 gap-4">
+          <!-- all players  -->
           <div class="grid grid-cols-2 gap-4">
-           
             <!-- player 1 -->
             <div>
               <div class="card card-compact w-full bg-base-100 shadow-xl">
@@ -53,7 +61,11 @@
                   <h2 class="card-title">Lionel Messi</h2>
                   <p>36 Goals - 120 Assist</p>
                   <div class="card-actions justify-center">
-                    <button class="btn btn-primary" onclick="addToPlayer(this)">
+                    <button
+                      id="button-1"
+                      class="btn btn-primary"
+                      onclick="addToPlayer(this),disable(this)"
+                    >
                       SELECT
                     </button>
                   </div>
@@ -75,7 +87,11 @@
                   <h2 class="card-title">Neymar-Jr</h2>
                   <p>36 Goals - 120 Assist</p>
                   <div class="card-actions justify-center">
-                    <button class="btn btn-primary" onclick="addToPlayer(this)">
+                    <button
+                      id="button-2"
+                      class="btn btn-primary"
+                      onclick="addToPlayer(this),disable(this)"
+                    >
                       SELECT
                     </button>
                   </div>
@@ -97,7 +113,11 @@
                   <h2 class="card-title">Kylian Mbappé</h2>
                   <p>36 Goals - 120 Assist</p>
                   <div class="card-actions justify-center">
-                    <button class="btn btn-primary" onclick="addToPlayer(this)">
+                    <button
+                      id="button-3"
+                      class="btn btn-primary"
+                      onclick="addToPlayer(this),disable(this)"
+                    >
                       SELECT
                     </button>
                   </div>
@@ -119,7 +139,11 @@
                   <h2 class="card-title">Renato Sanches</h2>
                   <p>36 Goals - 120 Assist</p>
                   <div class="card-actions justify-center">
-                    <button class="btn btn-primary" onclick="addToPlayer(this)">
+                    <button
+                      id="button-4"
+                      class="btn btn-primary"
+                      onclick="addToPlayer(this),disable(this)"
+                    >
                       SELECT
                     </button>
                   </div>
@@ -141,7 +165,11 @@
                   <h2 class="card-title">Sergio Ramos</h2>
                   <p>36 Goals - 120 Assist</p>
                   <div class="card-actions justify-center">
-                    <button class="btn btn-primary" onclick="addToPlayer(this)">
+                    <button
+                      id="button-5"
+                      class="btn btn-primary"
+                      onclick="addToPlayer(this),disable(this)"
+                    >
                       SELECT
                     </button>
                   </div>
@@ -163,7 +191,11 @@
                   <h2 class="card-title">Vítor Machado</h2>
                   <p>36 Goals - 120 Assist</p>
                   <div class="card-actions justify-center">
-                    <button class="btn btn-primary" onclick="addToPlayer(this)">
+                    <button
+                      id="button-6"
+                      class="btn btn-primary"
+                      onclick="addToPlayer(this),disable(this)"
+                    >
                       SELECT
                     </button>
                   </div>
@@ -174,7 +206,7 @@
           <!-- .Select Top 5 -->
           <div>
             <h2 class="text-3xl text-white text-center mb-3">
-              Select Top
+              Selected Top
               <span class="text-orange-500" id="total-added-player">0</span>
             </h2>
             <!-- table -->
@@ -197,64 +229,90 @@
                 </tbody>
               </table>
             </div>
-<!-- !--.............. /Budget/...............  -->
-           
-<div class=" p-8 rounded-xl bg-lime-900 mt-10">
-    <h2 class="text-3xl text-white text-center mb-5">Budget</h2>
-     <!-- per player -->
-      <div class="flex ">
-        <div>
-            <h2 class="text-white">Per Player</h2>
-        </div>
-        <div class="ml-3 ">
-            <input id="player-input-field" class=" block mb-2 px-3 align-center text-white bg-gray-700" type="text" name="" placeholder="$ Input Amount"/>
-        </div>
-      </div>
-       <!-- end -->
-      <button id="btn-per-total" class="bg-orange-600 hover:bg-sky-700 px-8 py-2 text-white font-medium rounded-lg">Calculate</button>
-<!-- per player end-->
+            <!-- !--.............. /Budget/...............  -->
 
-      <h2 class="text-white mt-3 mb-3 ">Player Expenses $<span id="player-expenses">00</span></h2>
+            <div class="p-8 rounded-xl bg-lime-900 mt-10">
+              <h2 class="text-3xl text-white text-center mb-5">Budget</h2>
+              <!-- per player -->
+              <div class="flex">
+                <div>
+                  <h2 class="text-white mt-3">Per Player</h2>
+                </div>
+                <div class="ml-3">
+                  <input
+                    id="player-input-field"
+                    class="block mb-3 px-3 py-3 align-center text-white bg-gray-700 border-2 border-white-500"
+                    type="text"
+                    name=""
+                    placeholder="$ Input Amount"
+                  />
+                </div>
+              </div>
+              <!-- end -->
+              <button
+                id="btn-per-total"
+                class="bg-blue-700 hover:bg-red-800 px-8 py-2 text-white font-medium rounded-lg"
+              >
+                Calculate
+              </button>
+              <!-- per player end-->
 
-<!-- Manager -->
-<div class="flex ">
-    <div>
-        <h2 class="text-white">Manager</h2>
-    </div>
-    <div class="ml-3 ">
-        <input id="manager-input-field" class=" block mb-2 px-3 align-center" type="text" name="" placeholder="$ Input Amount"/>
-    </div>
-  </div>
-   <!-- end -->
-   
-   <!-- Coach -->
-      <div class="flex ">
-        <div>
-            <h2 class="text-white ml-5">Coach</h2>
-        </div>
-        <div class="ml-3 ">
-            <input id="coach-input-field" class=" block mb-2 px-3 align-center" type="text" name="" placeholder="$ Input Amount"/>
-        </div>
-      </div>
-       <!-- end -->
+              <h2 class="text-white mt-3 mb-3">
+                Player Expenses $<span id="player-expenses">00</span>
+              </h2>
 
-       <button id="btn-calculate-total" class="bg-amber-600 hover:bg-sky-700 px-8 py-2 text-white font-medium rounded-lg">Calculate Total</button>
+              <!-- Manager -->
+              <div class="flex">
+                <div>
+                  <h2 class="text-white mt-3">Manager</h2>
+                </div>
+                <div class="ml-3">
+                  <input
+                    id="manager-input-field"
+                    class="block mb-3 px-3 py-3 align-center bg-gray-700 text-white border-2 border-white-500"
+                    type="text"
+                    name=""
+                    placeholder="$ Input Amount"
+                  />
+                </div>
+              </div>
+              <!-- end -->
 
-       <h2 class=" text-white mt-3">Total $ <span id="total">00</span></h2>
+              <!-- Coach -->
+              <div class="flex">
+                <div>
+                  <h2 class="text-white ml-5 mt-3">Coach</h2>
+                </div>
+                <div class="ml-3">
+                  <input
+                    id="coach-input-field"
+                    class="block mb-3 px-3 py-3 align-center bg-gray-700 text-white border-2 border-white-500"
+                    type="text"
+                    name=""
+                    placeholder="$ Input Amount"
+                  />
+                </div>
+              </div>
+              <!-- end -->
 
-    </div>
-    <!-- budget box end -->
-            
-                      
-         
-          
+              <button
+                id="btn-calculate-total"
+                class="bg-blue-700 hover:bg-red-800 px-8 py-2 text-white font-medium rounded-lg"
+              >
+                Calculate Total
+              </button>
 
+              <h2 class="text-white mt-3">Total $<span id="total">00</span></h2>
+            </div>
+            <!-- budget box end -->
           </div>
         </div>
       </section>
     </main>
 
+    <script src="js/button.js"></script>
     <script src="js/select.js"></script>
     <script src="js/calculater.js"></script>
+    <script src="js/utilities.js"></script>
   </body>
 </html>

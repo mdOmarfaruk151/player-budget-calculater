@@ -18,6 +18,7 @@ function display(player) {
 
     tableBody.appendChild(tr);
   }
+
 }
 
 function addToPlayer(element) {
@@ -28,13 +29,28 @@ function addToPlayer(element) {
   };
 
   playersArray.push(playerObject);
-  // console.log(playersArray);
-  // console.log(playersArray.length);
-  document.getElementById("total-added-player").innerText = playersArray.length;
 
+  
+ 
+  if(playersArray.length === 6 ){
+    alert('You have already added 5 members !!! You can not add more than 5.');
+    
+    return(tr);
+  }
+
+  if(playersArray.length === 6){
+    playersArray.pop(playerObject);
+    
+  }
+  
+  document.getElementById("total-added-player").innerText = playersArray.length;
   display(playersArray);
+
 }
 
 
-// ..........................................................
+// ...............button disable...........................................
 
+function disable(x){
+  x.disabled =true;
+}
